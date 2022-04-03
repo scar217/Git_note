@@ -190,9 +190,130 @@
 ### 5.3、邀请加入团队
 
 * 在某个远程库中：
-  * ![](F:\Git\Git_note\imags\Snipaste_2022-04-01_21-14-22.png)
+  * ![](images\Snipaste_2022-04-01_21-14-22.png)
 
 ### 5.4、跨团队协作
 
 参照配套PDF
+
+### 5.5、SSH免密登录
+
+git使用`https`协议，每次pull, push都要输入密码，相当的烦。
+使用git协议，然后使用[ssh](https://so.csdn.net/so/search?q=ssh&spm=1001.2101.3001.7020)密钥。这样可以省去每次都输密码。
+
+大概需要三个步骤：
+一、本地生成[密钥](https://so.csdn.net/so/search?q=密钥&spm=1001.2101.3001.7020)对；
+二、设置github上的公钥；
+三、修改git的remote url为git协议。
+
+**详细查看PDF**
+
+## 六、IDEA集成Git
+
+### 6.1、配置Git忽略文件
+
+* 为什么忽略？
+
+  * 与项目的实际功能无关，不参与服务器上部署运行。把它们忽略掉能够屏蔽 `IDE` 工具之间的差异
+
+* 怎么忽略？
+
+  * 创建忽略规则文件 `xxxx.ignore`（前缀名随便起，建议是 `git.ignore`） 这个文件的存放位置原则上在哪里都可以，为了便于让`~/.gitconfig` 文件引用，建议也放在用户家目录下 
+
+    * 忽略规则文件格式：
+
+      * ```
+        # Compiled class file 
+        *.class 
+        
+        # Log file 
+        *.log 
+         
+        # BlueJ files 
+        *.ctxt 
+         
+        # Mobile Tools for Java (J2ME) 
+        .mtj.tmp/ 
+         
+        # Package Files # 
+        *.jar 
+        *.war 
+        *.nar 
+        *.ear 
+        *.zip 
+        *.tar.gz 
+        *.rar 
+         
+        # virtual machine crash logs, see 
+        http://www.java.com/en/download/help/error_hotspot.xml 
+        hs_err_pid* 
+         
+        .classpath 
+        .project 
+        .settings 
+        target 
+        .idea 
+        *.iml 
+        ```
+
+    * `.gitconfig` 文件中引用忽略配置文件格式
+
+      * ```格式
+        [user] 
+         name = Layne 
+         email = Layne@atguigu.com 
+        [core] 
+         excludesfile = C:/Users/asus/git.ignore 
+        注意：这里要使用“正斜线（/）”，不要使用“反斜线（\）”
+        ```
+
+### 6.2、定位Git程序
+
+![](images/Snipaste_2022-04-03_16-28-19.png)
+
+### 6.3、初始化本地仓库
+
+![](images/Snipaste_2022-04-03_16-28-37.png)
+
+#### 6.3.1、添加暂存区
+
+![](images/Snipaste_2022-04-03_16-30-28.png)
+
+#### 6.3.2、提交本地库
+
+![](images/Snipaste_2022-04-03_16-30-43.png)
+
+#### 6.3.3、其他功能参考PDF
+
+## 七、国内代码托管中心-码云(gitee)
+
+码云是开源中国推出的基于 Git 的代码托管服务中心，[网址是](https://gitee.com/)，使用方式跟 GitHub 一样
+
+**上传代码**其他与GitHub一致，push时需要选择仓库
+
+![](images/Snipaste_2022-04-03_19-09-47.png)
+
+* 第一个为GitHub上的某个仓库
+* 第二个为gitee上的某个仓库
+
+**拉取代码**
+
+![](images/Snipaste_2022-04-03_19-13-19.png)
+
+* 选择某个托管网站的仓库
+
+### 7.1、码云复制GitHub项目
+
+![](images/Snipaste_2022-04-03_21-33-33.png)
+
+* 输入GitHub仓库的HTTP协议
+  * ![](images/Snipaste_2022-04-03_22-12-54.png)
+* 当GitHub仓库发生更新，更新Gitee新版本操作
+  * ![](images/Snipaste_2022-04-03_22-14-31.png)
+
+### 7.2、其他操作与GitHub一致
+
+### 7.3、Gitee与IDEA使用需要安装插件
+
+## 八、自建代码托管平台-GitLab
 
